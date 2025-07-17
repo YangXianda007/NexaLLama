@@ -1,0 +1,6 @@
+module NexaBridge [system] {
+    header "ml.h"
+    header "ml-profile.h"
+    export *
+    link "c++"
+}

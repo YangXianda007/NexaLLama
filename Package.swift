@@ -16,12 +16,16 @@ let package = Package(
             targets: ["llama"]),
         .library(
             name: "mtmd",
-            targets: ["mtmd"])
+            targets: ["mtmd"]),
+        .library(
+            name: "nexa_bridge",
+            targets: ["nexa_bridge"])
     ],
     targets: [
         .binaryTarget(name: "common", path: "llama/libcommon.xcframework"),
         .binaryTarget(name: "llama", path: "llama/llama.xcframework"),
         .binaryTarget(name: "mtmd", path: "llama/libmtmd.xcframework"),
+        .binaryTarget(name: "nexa_bridge", path: "nexabridge/libnexa_bridge.xcframework"),
         .testTarget(
             name: "NexaLLamaTests",
             dependencies: ["llama"]
