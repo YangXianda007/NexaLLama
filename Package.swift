@@ -9,21 +9,22 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "NexaLLama",
-            targets: ["NexaLLama"]),
+            name: "common",
+            targets: ["common"]),
+        .library(
+            name: "llama",
+            targets: ["llama"]),
+        .library(
+            name: "mtmd",
+            targets: ["mtmd"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(name: "NexaLLama", dependencies: [
-            "common", "mtmd", "llama"
-        ]),
         .binaryTarget(name: "common", path: "llama/libcommon.xcframework"),
         .binaryTarget(name: "llama", path: "llama/llama.xcframework"),
         .binaryTarget(name: "mtmd", path: "llama/libmtmd.xcframework"),
         .testTarget(
             name: "NexaLLamaTests",
-            dependencies: ["NexaLLama"]
+            dependencies: ["llama"]
         ),
     ]
 )
